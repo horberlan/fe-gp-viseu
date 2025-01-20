@@ -5,10 +5,10 @@ import { getAddressData } from "./services/addressService";
 import type { AddressData } from "./types/index";
 
 const App = () => {
-  const [addressData, setAddressData] = useState<AddressData | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [zipCode, setZipCode] = useState("");
+  const [ addressData, setAddressData ] = useState<AddressData | null>(null);
+  const [ loading, setLoading ] = useState(false);
+  const [ error, setError ] = useState<string | null>(null);
+  const [ zipCode, setZipCode ] = useState("");
 
   const intl = {
     title: "Zip Code Lookup",
@@ -37,19 +37,19 @@ const App = () => {
   };
 
   return (
-    <article className="prose m-2 grid place-items-center">
-      <h1 className="text-sky-400">{intl.title}</h1>
-      <form onSubmit={handleSubmit} className="flex d-flex gap-2">
+    <article className="sm:prose-lg md:prose-xl lg:prose-2xl xl:prose-3xl m-2 grid place-items-center">
+      <h1 className="sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-sky-400">{intl.title}</h1>
+      <form onSubmit={handleSubmit} className="flex gap-2 justify-center">
         <InputZipcode onChange={setZipCode} disabled={loading} />
         <button
-          className="btn bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded"
+          className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 btn bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded text-sm md:text-base lg:text-lg xl:text-xl"
           type="submit"
           disabled={loading}
         >
           {loading ? intl.isLoading : intl.loaded}
         </button>
       </form>
-      {error && <p className="text-red-400">{error}</p>}
+      {error && <p className="sm:text-sm md:text-base lg:text-lg xl:text-xl text-red-400">{error}</p>}
       {addressData && <AddressForm addressData={addressData} />}
     </article>
   );
