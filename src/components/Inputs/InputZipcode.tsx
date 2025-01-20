@@ -16,11 +16,19 @@ export function InputZipcode({ onChange, disabled = false }: InputZipcodeProps) 
     return `${expressionValue.slice(0, 5)}-${expressionValue.slice(5, 8)}`
   }
 
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target
+    const maskedValue = maskCEP(value)
+    setCep(maskedValue)
+    onChange(maskedValue.replace(/\D/g, ""))
+  }
+
   return (
     <input
       type="text"
       name="zipCode"
       value={cep}
+      onChange={handleChange}
       className="p-2 border text-white border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
       placeholder="00000-000"
       required
