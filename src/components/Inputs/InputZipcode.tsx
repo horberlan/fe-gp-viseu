@@ -29,7 +29,7 @@ export function InputZipcode({ onChange, disabled = false }: InputZipcodeProps) 
       name="zipCode"
       value={cep}
       onChange={handleChange}
-      className="p-2 border text-white border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+      className="p-2 border text-white border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
       placeholder="00000-000"
       required
       pattern="\d{5}-?\d{3}"
