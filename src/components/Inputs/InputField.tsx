@@ -17,7 +17,7 @@ export function InputField({ label, value }: InputFieldProps) {
         id={label}
         value={value || ""}
         readOnly
-        className="w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
+        className="w-full p-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
       />
     </div>
   );
