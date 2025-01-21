@@ -1,36 +1,37 @@
-import { useState, type ChangeEvent } from "react"
+import type React from "react"
+import { useState, useCallback } from "react"
 
 interface InputZipcodeProps {
-  onChange: (cep: string) => void
+  onChange: (zipCode: string) => void
   disabled: boolean
 }
 
-export function InputZipcode({ onChange, disabled = false }: InputZipcodeProps) {
-  const [ cep, setCep ] = useState("")
+export const InputZipcode: React.FC<InputZipcodeProps> = ({ onChange, disabled }) => {
+  const [zipCode, setZipCode] = useState("")
 
-  const maskCEP = (value: string): string => {
+  const maskZipCode = useCallback((value: string): string => {
     const expressionValue = value.replace(/\D/g, "")
-    if (expressionValue.length <= 5) {
-      return expressionValue
-    }
+    if (expressionValue.length <= 5) return expressionValue
     return `${expressionValue.slice(0, 5)}-${expressionValue.slice(5, 8)}`
-  }
+  }, [])
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target
-    const maskedValue = maskCEP(value)
-    setCep(maskedValue)
-    onChange(maskedValue.replace(/\D/g, ""))
-  }
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const maskedValue = maskZipCode(event.target.value)
+      setZipCode(maskedValue)
+      onChange(maskedValue.replace(/\D/g, ""))
+    },
+    [maskZipCode, onChange],
+  )
 
   return (
     <input
       type="text"
       name="zipCode"
-      value={cep}
+      value={zipCode}
       onChange={handleChange}
-      className="p-2 border text-white border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
-      placeholder="00000-000"
+      className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-sky-500"
+      placeholder="Enter Zip Code"
       required
       pattern="\d{5}-?\d{3}"
       maxLength={9}
