@@ -39,10 +39,10 @@ const App = () => {
   return (
     <article className="sm:prose-lg md:prose-xl lg:prose-2xl xl:prose-3xl m-2 grid place-items-center">
       <h1 className="sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-sky-400">{intl.title}</h1>
-      <form onSubmit={handleSubmit} className="flex gap-2 justify-center">
+      <form onSubmit={handleSubmit} className="flex flex-wrap sm:flex-col md:flex-row gap-2 justify-center">
         <InputZipcode onChange={setZipCode} disabled={loading} />
         <button
-          className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 btn bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded text-sm md:text-base lg:text-lg xl:text-xl"
+          className="btn bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded text-sm md:text-base lg:text-lg xl:text-xl"
           type="submit"
           disabled={loading}
         >
