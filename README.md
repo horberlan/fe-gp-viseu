@@ -1,50 +1,15 @@
-# React + TypeScript + Vite
+### Front End Grupo Viseu - atividade 
+Este projeto é uma aplicação web desenvolvida com React e Vite, que permite buscar endereços a partir de um Código de Endereçamento Postal informado pelo usuário. A aplicação utiliza a [api-gp-viseu]("https://github.com/horberlan/api-gp-viseu") para realizar a busca de dados de endereço baseado no CEP fornecido.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* Interface simples e intuitiva para digitar um CEP e realizar a busca de endereço.
+* Exibição dos detalhes do endereço, incluindo rua, bairro, cidade e estado, após a busca.
+* Suporte a máscara para o formato de CEP (00000-000).
+* Erro de validação se o CEP for inválido ou houver algum erro na busca.
 
-Currently, two official plugins are available:
+### Requisitos
+* Bun (1.1.38)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+#### Setup
+```bash
+Bun install && Bun dev
 ```
