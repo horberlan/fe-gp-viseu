@@ -30,8 +30,8 @@ export const InputZipcode: React.FC<InputZipcodeProps> = ({ onChange, disabled }
       name="zipCode"
       value={zipCode}
       onChange={handleChange}
-      className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-sky-500"
-      placeholder="Enter Zip Code"
+      className="p-2 border text-white border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
+      placeholder="00000-000"
       required
       pattern="\d{5}-?\d{3}"
       maxLength={9}

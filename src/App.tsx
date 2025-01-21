@@ -14,6 +14,7 @@ const App = () => {
     title: "Zip Code Lookup",
     isLoading: "Loading...",
     loaded: "Lookup",
+    error: "error fetching address data."
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -29,7 +30,7 @@ const App = () => {
         throw new Error("failed to fetch address data");
       }
     } catch (err) {
-      setError("error fetching address data. please try again.");
+      setError(intl.error);
       console.error(err);
     } finally {
       setLoading(false);
@@ -42,7 +43,7 @@ const App = () => {
       <form onSubmit={handleSubmit} className="flex flex-wrap sm:flex-col md:flex-row gap-2 justify-center">
         <InputZipcode onChange={setZipCode} disabled={loading} />
         <button
-          className="btn bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded text-sm md:text-base lg:text-lg xl:text-xl"
+          className="btn bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded text-sm md:text-base lg:text-lg xl:text-xl w-auto"
           type="submit"
           disabled={loading}
         >
